@@ -1,6 +1,10 @@
 """
 Task # 2 
-In the example below, the numbers after the directions are steps. Please write a program to compute the distance from the current position after a sequence of movements and the original point. If the distance is a float, then just print the nearest integer. Use the argparse library to take inputs for UP, DOWN, LEFT, and RIGHT.
+In the example below, the numbers after the directions are steps. 
+Please write a program to compute the distance from the current position 
+after a sequence of movements and the original point. If the distance 
+is a float, then just print the nearest integer. Use the argparse library 
+to take inputs for UP, DOWN, LEFT, and RIGHT.
 Example: If the following tuples are given as input to the program:
 UP 5
 DOWN 3
