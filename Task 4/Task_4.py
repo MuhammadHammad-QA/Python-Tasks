@@ -60,3 +60,10 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+
+"""
+TAsk
+Positive values only (loop)
+Any other type not acceptable (Does not break)
+"""

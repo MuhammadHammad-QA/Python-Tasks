@@ -25,13 +25,13 @@ squared = square(X)                   # Calculate square of natural numbers
 cubed = cube(X)                       # Calculate cube of natural numbers
 
 
-plt.subplot(2, 1, 1)                  # Create a subplot with 2 rows and 1 column
+#plt.subplot(2, 1, 1)                  # Create a subplot with 2 rows and 1 column
 plt.plot(X, squared, marker='o')      # Plot the graph 
 plt.xlabel('Natural Numbers')         # Label the x-axis
 plt.ylabel('Squared Values of natural numbers')         # Label the y-axis
 plt.title('Squars of Natural Numbers')
 
-plt.subplot(2, 1, 2)  
+#plt.subplot(2, 1, 2)  
 plt.plot(X, cubed, marker='o', color='r')
 plt.title('Cube of Natural Numbers')
 plt.xlabel('Natural Numbers')
@@ -39,3 +39,8 @@ plt.ylabel('Cubed Values natural numbers')
 
 plt.tight_layout()
 plt.show()
+
+
+"""
+Task 
+Not with libraries"""
