@@ -33,12 +33,11 @@ def get_system_info():
     info = {}           # Declare dictionary
 
     for line in lscpu_output.split('\n'):               # Loop through the output of lscpu command line by line
-        if any(keyword in line for keyword in ["Byte Order", "Core(s) per socket", "Socket(s)", "Model name", "CPU MHz", "CPU max MHz", "CPU min MHz", "Virtualization", "L1d", "L1i", "L2 cache", "L3 cache", "NUMA node(s)"]):        # check if the line contains any of the keywords
+        if any(keyword in line for keyword in ["Byte Order", "Core(s) per socket", "Socket(s)", "Model name", "CPU MHz", "CPU max MHz", "CPU min MHz", "Virtualization", "L1d", "L1i", "L2 cache", "L3 cache"]):        # check if the line contains any of the keywords
             key, value = line.split(":", 1)             # Split the line by ":" and store in key and value
            
             if "cache" in key:                          # Check if the key contains "cache"
-                #match = re.search(r"(\d+\s*[KMG]i?B)", value)  
-                match = re.search(r"(\d+\s*)", value)  # Search for the pattern using regular expression
+                match = re.search(r"(\d+\s*[KMG]i?B)", value)   # Search for the pattern using regular expression
                 if match:                               # If the pattern is found
                     value = match.group(1)              # Store the pattern in value
             info[key.strip()] = value.strip()           # Store value in dictionary 
@@ -46,7 +45,7 @@ def get_system_info():
     for line in ram_output.split('\n'):                 # Loop through the output of free -m command line by line
         if "Mem:" in line:                              # Check if the line contains "Mem:"
             parts = line.split()                        # Split the line by space
-            info["RAM Memory"] = f"{parts[1]MB}"        # Store the memory in dictionary
+            info["RAM Memory"] = f"{parts[1]}MB"        # Store the memory in dictionary
 
     return info                                         # Return the dictionary
 

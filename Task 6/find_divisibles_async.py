@@ -15,8 +15,8 @@ async def async_find_divisibles(in_range, divisor):
     return divisible_numbers
 
 async def main():
-    task1 = asyncio.create_task(async_find_divisibles(50800000, 34113))
-    task2 = asyncio.create_task(async_find_divisibles(100052, 3210))
+    task1 = asyncio.create_task(async_find_divisibles(50800000, 34113))     # Create a task
+    task2 = asyncio.create_task(async_find_divisibles(100052, 3210))        
     task3 = asyncio.create_task(async_find_divisibles(500, 3))
     
 

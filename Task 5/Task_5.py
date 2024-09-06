@@ -10,6 +10,9 @@ Label the axis and give a suitable title to the plots.
 """
 
 
+
+
+
 import matplotlib.pyplot as plt       # Importing matplotlib library for plotting graphs
 
 def square(lst):                      # Function to calculate square of list elements
@@ -41,6 +44,32 @@ plt.tight_layout()
 plt.show()
 
 
-"""
-Task 
-Not with libraries"""
+# """
+# Task 
+# Without matplotlib libraries"""
+
+
+# from bokeh.plotting import figure, show         # Importing figure and show functions from bokeh.plotting module
+# from bokeh.layouts import column                # Importing column function from bokeh.layouts module
+
+# def square(lst):
+#     return [element ** 2 for element in lst]    # List comprehension
+
+# def cube(lst):
+#     return [element ** 3 for element in lst]
+
+# X = list(range(1, 11))
+# squared = square(X)                             # Calculate square of natural numbers
+# cubed = cube(X)                                 # Calculate cube of natural numbers
+
+# p1 = figure(title="Squares of Natural Numbers", x_axis_label='Natural Numbers', y_axis_label='Squared Values') # Create a figure object
+# p1.line(X, squared, legend_label='Squared', line_width=2) # Plot the graph
+# p1.scatter(X, squared, marker="circle", size=8, fill_color="white")
+
+
+# p2 = figure(title="Cubes of Natural Numbers", x_axis_label='Natural Numbers', y_axis_label='Cubed Values')
+# p2.line(X, cubed, legend_label='Cubed', line_width=2, line_color='red')
+# p2.scatter(X, cubed, marker="circle", size=8, fill_color="white", line_color='red')
+
+
+# show(column(p1, p2))
