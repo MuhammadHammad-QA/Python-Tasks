@@ -14,6 +14,18 @@ import argparse                         # Importing argparse library for CLI arg
 import json                             # Importing json library for handling json files
 import random                           # Importing random library for random number generation
 
+def get_validated_input(prompt, validation_func):
+    while True:
+        value = int(input(prompt))
+        if validation_func(value):
+            return value
+        else:
+            print("Invalid Iterations. Please enter a number greater than 0.")
+
+def is_valid_iter(iter):
+     return str(iter).isdigit() and int(iter) > 0
+
+
 def estimate_pi(iterations):            # Function to es=stimate the value of pi
     inside_circle = 0                   # Initialize to zero
     total_points = iterations            # Store the number of iterations in total_points
@@ -40,30 +52,29 @@ def main():
             with open('iterations.json') as f:
                 data = json.load(f)
                 if 'iterations' in data:                # Check if the json file contains "iterations" key
-                    iterations = data['iterations']     # Store the value of iterations
+                    iterat = data['iterations']     # Store the value of iterations
                 else:
                     print('Error: JSON file does not contain "iterations" key')
                     return
         except FileNotFoundError:
             print('Error: JSON file (iterations.json) not found')
             return
-    elif args.iterations:               # Check if the iterations flag is passed
-        iterations = args.iterations
+    elif args.iterations:
+        if not is_valid_iter(args.iterations):
+            print("Invalid Iterations. Please enter a number greater than 0.")
+            iterat = get_validated_input("Enter the number of iterations: ", is_valid_iter)
+        else:
+            iterat = args.iterations
+    else:
+        print("Invalid Iterations. Please enter a number greater than 0.")
+        iterat = get_validated_input("Enter the number of iterations: ", is_valid_iter)
+
     
-    if iterations <= 0:                 # Check if the number of iterations is less than or equal to 0
-        print('Error: Number of iterations must be greater than 0')
-        return
+    pi_estimate = estimate_pi(iterat)
+    print(f'Estimated value of pi after {iterat} iterations: {pi_estimate}')
     
-    pi_estimate = estimate_pi(iterations)
-    print(f'Estimated value of pi after {iterations} iterations: {pi_estimate}')
+
 
 if __name__ == "__main__":
     main()
 
-
-
-"""
-TAsk
-Positive values only (loop)
-Any other type not acceptable (Does not break)
-"""
